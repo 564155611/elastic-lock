@@ -1,0 +1,5 @@
+# Project exclude paths
+/01_whatislock/target/
+/02_impltypeoflock/target/
+/03_oversell/target/
+/04_distributelock/target/
