@@ -1,0 +1,27 @@
+mybatisGenerator:
+  datasource:
+    type: mysql
+    address: localhost:3306
+    db: distribute
+    username: root
+    password: 123456
+
+  targetPackage:
+    model: com.imooc.elasticlock.distributelock.entity
+    mapper: com.imooc.elasticlock.distributelock.mapper
+    javaXmlFilesSamePackage: false
+
+  targetRuntime: MyBatis3DynamicSql
+  mapperSuffixName: mapper
+  java8: false
+  disableExample: false
+
+  plugins:
+    comment: true
+    lombok: true
+    swagger: false
+    mapperAnnotation: true
+    serializable: false
+
+  tables:
+    - distribute_lock

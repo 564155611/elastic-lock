@@ -54,7 +54,7 @@
     </appender>-->
 
     <!-- 设置日志输出级别 -->
-    <root level="ERROR">
+    <root level="DEBUG">
         <appender-ref ref="CONSOLE"/>
     </root>
     <!--<logger name="file1" level="DEBUG">
