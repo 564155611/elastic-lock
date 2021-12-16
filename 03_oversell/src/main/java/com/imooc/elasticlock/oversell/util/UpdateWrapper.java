@@ -6,7 +6,7 @@ public class UpdateWrapper<T> extends com.baomidou.mybatisplus.core.conditions.u
     }
 
     public UpdateWrapper<T> setSql(boolean condition, String sql,Object ...params) {
-        super.setSql(formatSqlMaybeWithParam(sql, null, params));
+        super.setSql(formatSql(sql, params));
         return this;
     }
 }

@@ -1,8 +1,10 @@
 mybatisGenerator:
+  properties:
+    javaFileEncoding: UTF-8
   datasource:
     type: mysql
     address: localhost:3306
-    db: distribute
+    db: distribute?characterEncoding=UTF-8&useSSL=false&useUnicode=true&serverTimezone=UTC&allowPublicKeyRetrieval=true
     username: root
     password: 123456
 
@@ -11,7 +13,7 @@ mybatisGenerator:
     mapper: com.imooc.elasticlock.distributelock.mapper
     javaXmlFilesSamePackage: false
 
-  targetRuntime: MyBatis3DynamicSql
+  targetRuntime: MyBatis3
   mapperSuffixName: mapper
   java8: false
   disableExample: false

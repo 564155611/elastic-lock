@@ -35,6 +35,7 @@
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <version>4.6.1</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- apache 工具类 -->
