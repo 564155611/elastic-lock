@@ -18,7 +18,7 @@ public class ZkUtils {
         CountDownLatch countDownLatch = new CountDownLatch(1);
         ZooKeeper zk = null;
         try {
-            zk = new ZooKeeper(address, 300000, new Watcher() {
+            zk = new ZooKeeper(address, 5000, new Watcher() {
                 @Override
                 public void process(WatchedEvent event) {
                     Event.EventType type = event.getType();

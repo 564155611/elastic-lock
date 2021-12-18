@@ -1,7 +1,9 @@
 package com.imooc.elasticlock.distributelock.controller;
 
 import com.imooc.elasticlock.distributelock.entity.DistributeLock;
+import com.imooc.elasticlock.distributelock.lock.CuratorLock;
 import com.imooc.elasticlock.distributelock.lock.RedisLock;
+import com.imooc.elasticlock.distributelock.lock.RedissonLock;
 import com.imooc.elasticlock.distributelock.lock.ZkLock;
 import com.imooc.elasticlock.distributelock.mapper.DistributeLockMapper;
 import com.imooc.elasticlock.distributelock.util.ZkUtils;
@@ -22,7 +24,10 @@ public class LockController {
     private DistributeLockMapper mapper;
     @Autowired
     private RedisTemplate<String, String> redisTemplate;
-
+    @Autowired
+    private CuratorLock curatorLock;
+    @Autowired
+    private RedissonLock redissonLock;
 
     @GetMapping("singlelock")
     public String singleLock() {
@@ -88,4 +93,33 @@ public class LockController {
         });
         return "zklock";
     }
+
+    @GetMapping("curatorlock")
+    public String curatorLock(HttpServletRequest request){
+        int port = request.getServerPort();
+        curatorLock.execute("order",lock->{
+            System.out.println(port + ": 处理业务方法...");
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        return "curatorlock";
+    }
+
+    @GetMapping("redissonlock")
+    public String redissonLock(HttpServletRequest request){
+        int port = request.getServerPort();
+        redissonLock.execute("order",lock->{
+            System.out.println(port + ": 处理业务方法...");
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        return "redissonlock";
+    }
+
 }
